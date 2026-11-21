@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- Thành viên phụ trách: Huy - Phân hệ Quản lý Công việc (Task Management) -->
 <!-- Họ tên: Bùi Hưng Nhật Tân -->
 <!-- MSSV: 2474802017151 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -29,6 +29,10 @@
         <activity
             android:name=".ui.auth.ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.task.TaskActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

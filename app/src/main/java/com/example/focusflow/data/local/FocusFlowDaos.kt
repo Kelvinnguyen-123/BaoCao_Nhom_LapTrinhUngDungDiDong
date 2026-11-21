@@ -1,3 +1,4 @@
+// Thành viên phụ trách: Huy - Phân hệ Quản lý Công việc (Task Management)
 // Họ tên: Bùi Hưng Nhật Tân
 // MSSV: 2474802017151
 package com.example.focusflow.data.local
@@ -43,7 +44,7 @@ interface UserProfileDao {
 @Dao
 interface TaskDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTask(task: TaskEntity)
+    suspend fun insertTask(task: TaskEntity): Long
 
     @Update
     suspend fun updateTask(task: TaskEntity)
