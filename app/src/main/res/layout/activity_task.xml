@@ -5,18 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F8F9FA"
+    android:fitsSystemWindows="true"
     tools:context=".ui.task.TaskActivity">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
         android:theme="@style/Theme.FocusFlowApp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarTask"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/menu_task"
             app:navigationIcon="@android:drawable/ic_menu_revert"
             app:title="Quản lý Công việc"
             app:titleTextColor="@android:color/white" />
