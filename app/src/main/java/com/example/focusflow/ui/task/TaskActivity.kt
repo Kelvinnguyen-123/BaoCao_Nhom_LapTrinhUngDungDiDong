@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModelProvider
@@ -30,6 +32,12 @@ class TaskActivity : AppCompatActivity() {
         binding = ActivityTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { v, insets ->
+            val statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars())
+            v.setPadding(0, statusBarInsets.top, 0, 0)
+            insets
+        }
+
         val factory = TaskViewModelFactory(application)
         viewModel = ViewModelProvider(this, factory)[TaskViewModel::class.java]
 
@@ -48,15 +56,6 @@ class TaskActivity : AppCompatActivity() {
     private fun setupToolbar() {
         binding.toolbarTask.setNavigationOnClickListener {
             finish()
-        }
-
-        binding.toolbarTask.setOnMenuItemClickListener { menuItem ->
-            if (menuItem.itemId == R.id.btnSyncTasks) {
-                viewModel.syncFromFirestore()
-                true
-            } else {
-                false
-            }
         }
     }
 
